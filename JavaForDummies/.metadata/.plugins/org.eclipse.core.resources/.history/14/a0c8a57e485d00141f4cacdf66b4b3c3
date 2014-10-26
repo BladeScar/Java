@@ -1,0 +1,6 @@
+import java.awt.Container;
+
+
+public class DummiesPanel extends Container {
+
+}
