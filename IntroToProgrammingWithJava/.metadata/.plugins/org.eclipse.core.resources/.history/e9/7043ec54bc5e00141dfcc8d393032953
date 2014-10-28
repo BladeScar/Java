@@ -1,0 +1,25 @@
+package com.gpProject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Deck {
+    public static void main(String[] args) {
+        List<Card> newDeck = new ArrayList<Card>( );
+
+        Card.Rank[] ranks = Card.Rank.values();  
+        Card.Suit[] suits = Card.Suit.values(); 
+
+        for (Card.Suit suit : suits) {
+            for (Card.Rank rank : ranks) {
+                newDeck.add(new Card(rank, suit));
+            }
+        }
+
+        int n = newDeck.size();
+
+        for (int i = 0; i < n ; i++) {
+            System.out.println((i + 1)  + ": " + newDeck.get(i));       
+        }
+    }
+}

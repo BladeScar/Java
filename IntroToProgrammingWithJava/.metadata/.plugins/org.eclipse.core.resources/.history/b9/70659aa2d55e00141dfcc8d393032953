@@ -1,0 +1,16 @@
+package com.gpProject;
+
+import java.util.List;
+
+public class Main {
+
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Deck deck = new Deck();
+		//deck.printDeck();
+		deck.RiffleShuffle();;
+		deck.printDeck();
+	}
+
+}

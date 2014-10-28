@@ -1,0 +1,54 @@
+package com.gpProject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Shuffle {
+	private List<Card> newDeck = new ArrayList<Card>();
+
+	public static List<Card> RiffleShuffle(List<Card> startDeck) {
+		Card[] deck = new Card[startDeck.size()];
+		deck = (Card[]) startDeck.toArray();
+		Card[] temp1 = new Card[deck.length / 2];
+		Card[] temp2 = new Card[deck.length / 2];
+		for (int i = 0; i < temp1.length; i++) {
+			temp1[i] = deck[i];
+			temp2[i] = deck[i + 26];
+		}
+
+		return Shuffle(temp1, temp2);
+	}
+
+	public static List<Card> Shuffle(Card[] deck1, Card[] deck2) {
+		List<Card> fDeck = new ArrayList<Card>();
+		int deckOneCount = 0;
+		int deckTwoCount = 0;
+		Random rand = new Random();
+		int value = rand.nextInt(50);
+		if (value < 26) {
+			for (int i = 0; i < fDeck.size(); i++) {
+				if (i == 0 || i % 2 == 0) {
+					fDeck.add(deck1[deckOneCount]);
+					deckOneCount++;
+				} else {
+					fDeck.add(deck2[deckTwoCount]);
+					deckTwoCount++;
+				}
+			}
+		} else {
+			for (int i = 0; i < fDeck.size(); i++) {
+				if (i == 0 || i % 2 == 0) {
+					if (i == 0 || i % 2 == 0) {
+						fDeck.add(deck2[deckTwoCount]);
+						deckTwoCount++;
+					} else {
+						fDeck.add(deck1[deckOneCount]);
+						deckOneCount++;
+					}
+				}
+			}
+		}
+		return fDeck;
+	}
+}
